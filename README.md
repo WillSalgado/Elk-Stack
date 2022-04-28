@@ -2,14 +2,14 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![]
+![](images/Outline.jpg)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the included yaml file may be used to install only certain pieces of it, such as Filebeat.
 
-  - [Web_playbook.yml]
-  - [Filebeat_playbook.yml]
-  - [Metricbeat-playbook.yml]
-  - [Elk_playbook.yml]
+  - [Web_playbook.yml](Scripts/Web_playbook.yml)
+  - [Filebeat_playbook.yml](Scripts/Filebeat_config.yml)
+  - [Metricbeat-playbook.yml](Scripts/Metricbeat_playbook.yml)
+  - [Elk_playbook.yml](Scripts/Elk_playbook.yml)
 
 This document contains the following details:
 - Description of the Topology
@@ -109,15 +109,15 @@ SSH into the control node and follow the steps below:
 - Run the [download_all.sh] script to download all the used playbooks automaticly.
   - To download any of the above yaml files use the download_all.sh script as such:
 ```sh
- curl 
+ curl  https://raw.githubusercontent.com/WillSalgado/Elk-Stack/main/Scripts/download_all.sh > download_all.sh && sudo chmod +x download_all.sh && sudo ./download_all.sh
 ```
 - Update the etc/ansible/hosts file to include the local IP and the group name as well as the python interpreter. To specify the machine you want to Install the playbook on you need to add the group name that you entered into the hosts file into the playbook YAML file (ex. "hosts: websevers or hosts: elk")
 - Run the Web playbook to install dvwa on all three of the web servers, navigate to http://[Your.VM.Public.IP]/dvwa/setup.php to ensure the servers are up and running.
-  - ansible-playbook [Web_playbook.yml]
+  - ansible-playbook [Web_playbook.yml](Scripts/Web_playbook.yml)
 
 - Run the elk playbook, and navigate to http://[Your.VM.Public.IP]:5601/app/kibana check that the installation worked as expected.
-  - ansible-playbook [Elk_playbook.yml])
+  - ansible-playbook [Elk_playbook.yml](Scripts/Elk_playbook.yml)
 
 - From there you can run the Filebeat and Metricbeat yaml files to start receiving data from the web servers.
-  - ansible-playbook [Filebeat_playbook.yml]
-  - ansible-playbook [Metricbeat_playbook.yml]
+  - ansible-playbook [Filebeat_playbook.yml](Scripts/Filebeat_config.yml)
+  - ansible-playbook [Metricbeat_playbook.yml](Scripts/Metricbeat_playbook.yml)
