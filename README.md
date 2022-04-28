@@ -106,7 +106,7 @@ In order to use the playbooks, you will need to have an Ansible control node alr
 
 SSH into the control node and follow the steps below:
 
-- Run the [download_all.sh] script to download all the used playbooks automaticly.
+- Run the [download_all.sh](Scripts/download_all.sh) script to download all the used playbooks automaticly.
   - To download any of the above yaml files use the download_all.sh script as such:
 ```sh
  curl  https://raw.githubusercontent.com/WillSalgado/Elk-Stack/main/Scripts/download_all.sh > download_all.sh && sudo chmod +x download_all.sh && sudo ./download_all.sh
